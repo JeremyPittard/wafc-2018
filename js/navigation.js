@@ -119,4 +119,16 @@ jQuery(function($) {
       $(".mobile-navigation__content").addClass("open");
     }
   });
+
+  $(window).scroll(function() {
+    var hT = $(".about-us").offset().top,
+      hH = $(".about-us").outerHeight(),
+      wH = $(window).height(),
+      wS = $(this).scrollTop();
+    if (wS > hT + hH - wH) {
+      $(".site-branding__logo").addClass("shrinky");
+    } else {
+      $(".site-branding__logo").removeClass("shrinky");
+    }
+  });
 });

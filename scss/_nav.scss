@@ -1,12 +1,17 @@
+.site {
+  margin-top: 5rem;
+}
+
 header {
   background-color: $secondary;
   font-family: $title-font;
   color: $primary;
   font-size: 1.25rem;
-  //fix for nav background not being full-width
-  .header-bg {
-    background: $secondary;
-  }
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 100%;
+  top: 0;
+  z-index: 9;
+  position: fixed;
 
   #site-navigation {
     display: none;
@@ -31,7 +36,7 @@ header {
       @media (min-width: 1024px) {
         width: 150px;
       }
-      &.scrolled {
+      &.shrinky {
         width: 70px;
       }
     }

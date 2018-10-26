@@ -1,0 +1,19 @@
+.about-us {
+  text-align: center;
+  color: $primary;
+  background-color: $secondary;
+  width: 100%;
+  padding-bottom: 1.75rem;
+  font-weight: 500;
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-family: $primary-font;
+    font-size: 1rem;
+    font-weight: 500;
+    display: inline;
+  }
+}

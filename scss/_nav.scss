@@ -1,0 +1,78 @@
+header {
+  background-color: $secondary;
+  font-family: $title-font;
+  color: $primary;
+  font-size: 1.25rem;
+  //fix for nav background not being full-width
+  .header-bg {
+    background: $secondary;
+  }
+
+  #site-navigation {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .menu-item {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .site-branding {
+    text-align: center;
+    padding: 0 !important;
+
+    &__logo {
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      @media (min-width: 1024px) {
+        width: 150px;
+      }
+      &.scrolled {
+        width: 70px;
+      }
+    }
+  }
+
+  .mobile-navigation {
+    padding-top: 1rem;
+    position: relative;
+    z-index: 10;
+    @media (min-width: 1024px) {
+      display: none;
+    }
+
+    &__icon {
+      width: 40px;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      &.open {
+        transform: rotate(90deg);
+      }
+    }
+
+    &__content {
+      position: absolute;
+      bottom: 0;
+      z-index: 9;
+      background: $secondary;
+      height: 0;
+      overflow: hidden;
+      width: 100%;
+      transition: all 0.4s ease-in-out;
+      ul {
+        list-style-type: none;
+      }
+      @media (min-width: 1024px) {
+        display: none;
+      }
+
+      &.open {
+        height: 100%;
+        padding-top: 15rem;
+      }
+    }
+  }
+}

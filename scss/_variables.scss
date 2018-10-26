@@ -1,0 +1,24 @@
+/* Colours */
+$primary: #ffffff;
+$secondary: #3e4189;
+$title-size: 36px;
+
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Graduate|Montserrat:400,800,500");
+
+$title-font: "Graduate", cursive;
+$primary-font: "Montserrat", sans-serif;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $title-font;
+}
+
+*::selection {
+  background-color: rgba($color: $primary, $alpha: 1);
+  color: rgba($color: $secondary, $alpha: 1);
+}

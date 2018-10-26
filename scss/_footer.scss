@@ -1,0 +1,109 @@
+.site-footer {
+  background-color: $secondary;
+  color: $primary;
+  padding-bottom: 1rem;
+
+  &__form {
+    color: $primary;
+    display: flex !important;
+    align-items: flex-end;
+    label {
+      .EMAIL-label {
+        opacity: 0; //so screen readers can still see the fields
+        height: 0;
+        overflow: hidden !important;
+      }
+      &.EMAIL-label {
+        margin: 0 !important;
+      }
+
+      p {
+        font-family: $title-font;
+        font-size: 1.2rem !important;
+      }
+    }
+    input {
+      background: $secondary !important;
+      border: 1px solid $primary !important;
+      color: $primary !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      height: 2.5rem !important;
+      &::placeholder {
+        color: $primary !important;
+      }
+    }
+  }
+
+  &__form-submit {
+    background-color: $secondary !important;
+    color: $primary !important;
+    transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: 600;
+    border: 1px solid $primary !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    height: 2.5rem !important;
+    &:hover {
+      background-color: $primary !important;
+      color: $secondary !important;
+    }
+    @media (min-width: 1024px) {
+      width: 50% !important;
+    }
+  }
+
+  &__social {
+    text-align: center;
+    padding-top: 2rem;
+
+    a {
+      transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-decoration: none;
+      &:hover {
+        svg {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    svg {
+      margin: 0 1.5rem;
+      fill: $primary;
+      transition: all 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+  }
+
+  &__contact {
+    text-align: left;
+    margin-top: 1rem;
+    border-top: 1px solid $primary;
+  }
+
+  &__contacts {
+    list-style-type: none;
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  &__details {
+    text-align: right;
+    padding-top: 1rem;
+
+    a {
+      text-decoration: none;
+    }
+
+    ul {
+      list-style-type: none;
+      li {
+        padding: 0.5rem 0;
+        a {
+          border-bottom: 1px solid;
+          padding-bottom: 2px;
+        }
+      }
+    }
+  }
+}

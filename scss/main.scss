@@ -1,0 +1,13 @@
+@import "variables";
+@import "default"; //css that came with theme I am modifying need to go through and sort out whats needed and whats not.
+@import "grid";
+@import "nav";
+
+/* pages to include */
+@import "latest-news";
+@import "about-us";
+@import "upcoming-games";
+@import "upcoming-events";
+@import "home-sponsors";
+@import "map";
+@import "footer";

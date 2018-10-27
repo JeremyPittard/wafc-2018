@@ -121,11 +121,8 @@ jQuery(function($) {
   });
 
   $(window).scroll(function() {
-    var hT = $(".about-us").offset().top,
-      hH = $(".about-us").outerHeight(),
-      wH = $(window).height(),
-      wS = $(this).scrollTop();
-    if (wS > hT + hH - wH) {
+    var scrollLength = $(this).scrollTop();
+    if (scrollLength > 100) {
       $(".site-branding__logo").addClass("shrinky");
     } else {
       $(".site-branding__logo").removeClass("shrinky");

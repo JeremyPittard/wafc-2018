@@ -9,7 +9,6 @@
  * @package Bad_Funk_Stripe
  */
 $logo = get_field('logo', 'option');
-
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -45,7 +44,7 @@ $logo = get_field('logo', 'option');
 				</nav>
 				
 				
-				<nav id="site-navigation" class="main-navigation col-xs-10">
+				<nav id="site-navigation" class="main-navigation col-xs-12 col-lg-10">
 					<?php
 					wp_nav_menu( array(
 						'theme_location' => 'menu-1',
@@ -60,5 +59,3 @@ $logo = get_field('logo', 'option');
 	</header><!-- #masthead -->
 	
 	<div id="content" class="site-content">
-		
-		

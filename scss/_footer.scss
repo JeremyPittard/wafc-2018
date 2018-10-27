@@ -88,8 +88,10 @@
   }
 
   &__details {
-    text-align: right;
     padding-top: 1rem;
+    @media (min-width: 1024px) {
+      text-align: right;
+    }
 
     a {
       text-decoration: none;

@@ -1,5 +1,14 @@
 .site {
-  margin-top: 5rem;
+  margin-top: 2.5rem;
+  @media (min-width: 768px) {
+    margin-top: 3.5rem;
+  }
+  @media (min-width: 1024px) {
+    margin-top: 6.5rem;
+  }
+  @media (min-width: 1366px) {
+    margin-top: 5rem;
+  }
 }
 
 header {
@@ -52,7 +61,8 @@ header {
 
     &__icon {
       width: 40px;
-      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      padding-top: 10px;
       &.open {
         transform: rotate(90deg);
       }
@@ -60,23 +70,30 @@ header {
 
     &__content {
       position: absolute;
-      bottom: 0;
+      top: 0;
       z-index: 9;
       background: $secondary;
       height: 0;
       overflow: hidden;
       width: 100%;
-      transition: all 0.4s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      a {
+        text-decoration: none;
+      }
       ul {
         list-style-type: none;
+        li {
+          padding: 0.5rem 0;
+        }
       }
       @media (min-width: 1024px) {
         display: none;
       }
 
       &.open {
-        height: 100%;
-        padding-top: 15rem;
+        height: 100vh;
+        padding-top: 10rem;
+        position: relative;
       }
     }
   }

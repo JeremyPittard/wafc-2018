@@ -12,7 +12,8 @@
     </div>
     <div class="row">
         <?php
-        $args = array( 'post_type' => 'news', 'posts_per_page' => -1 );
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $args = array( 'post_type' => 'news', 'posts_per_page' => 5, 'paged' => $paged);
         $loop = new WP_Query( $args );
         $count = 0;
         while ( $loop->have_posts() ) : $loop->the_post(); 
@@ -46,13 +47,43 @@
         <?php
         endif;
         endwhile;
-        
         ?>
     
     </div>
+        <?php
+            $total_pages = $loop->max_num_pages;
+            $current_page = max(1, get_query_var('paged'));
+
+            if ($total_pages > 1) :            
+            $current_page = max(1, get_query_var('paged'));
+            ?>
+                <div class="row">
+                    <div class="col-xs-12 latest-news__pagination">
+                    Page &nbsp;
+                        <?php
+                         echo paginate_links(array(
+                            'base' => get_pagenum_link(1) . '%_%',
+                            'format' => '/page/%#%',
+                            'current' => $current_page,
+                            'total' => $total_pages,
+                            'prev_text'    => __('&larr;'),
+                            'next_text'    => __('&rarr;'),
+                        ));
+                        
+                        ?>
+                    </div>
+                </div>
+                <?php
+            endif;  
+        ?>
+    
     
 </section>
-<?php wp_reset_query(); ?>
+
+<?php 
+    wp_reset_query();
+    wp_reset_postdata(); 
+?>
 
 <?php get_footer();
     

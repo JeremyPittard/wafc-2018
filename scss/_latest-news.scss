@@ -84,4 +84,17 @@
       }
     }
   }
+
+  &__pagination {
+    text-align: center;
+
+    .current {
+      color: $secondary;
+      font-weight: bold;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
 }

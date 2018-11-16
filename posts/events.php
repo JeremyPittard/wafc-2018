@@ -44,3 +44,8 @@ function events_post() {
  
 // Hook into the 'init' action
 add_action( 'init', 'events_post', 0 );
+
+function events_pagination_rewrite() {
+    add_rewrite_rule(get_option('post_type').'page/?([0-9]{1,})/?$', 'index.php?pagename='.get_option('post_type').'&paged=$matches[1]', 'top');
+  }
+  add_action('init', 'events_pagination_rewrite');

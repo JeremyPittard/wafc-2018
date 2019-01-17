@@ -1,0 +1,32 @@
+.fixtures {
+  padding: 1rem 0;
+  &__links {
+    a {
+      color: $primary;
+      background: $secondary;
+      text-align: center;
+      padding: 1rem 0.5rem;
+    }
+  }
+
+  &__fixture {
+    border-bottom: 1px solid $secondary;
+  }
+
+  &__details {
+    text-align: center;
+    margin: 1rem 0 0.05rem;
+  }
+
+  &.alternate {
+    background-color: $secondary;
+    color: $primary;
+    h2 {
+      color: $primary;
+    }
+
+    .fixtures__fixture {
+      border-bottom: 1px solid $primary;
+    }
+  }
+}

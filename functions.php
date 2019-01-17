@@ -194,3 +194,42 @@ function add_file_types_to_uploads($file_types){
 include 'posts/news.php';
 include 'posts/events.php';
 
+
+//populate teams dropdown on fixtures page from teams list in theme options
+function acf_load_team_field_choices( $field ) {
+    
+    // reset choices
+    $field['choices'] = array();
+
+
+    // if has rows
+    if( have_rows('list_of_teams', 'option') ) {
+        
+        // while has rows
+        while( have_rows('list_of_teams', 'option') ) {
+            
+            // instantiate row
+            the_row();
+            
+            
+            // vars
+			$raw_value = get_sub_field('label');
+			$value = strtolower(trim(preg_replace('/\s+/', '', $raw_value)));
+            $label = get_sub_field('label');
+
+            
+            // append to choices
+            $field['choices'][ $value ] = $label;
+            
+		}
+	
+        
+    }
+
+
+    // return the field
+    return $field;
+    
+}
+
+add_filter('acf/load_field/name=team_playing', 'acf_load_team_field_choices');

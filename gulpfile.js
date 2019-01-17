@@ -6,6 +6,7 @@ var runSequence = require("run-sequence");
 var imagemin = require("gulp-imagemin");
 var minifyCss = require("gulp-minify-css");
 var prefix = require("gulp-autoprefixer");
+var purge = require("gulp-css-purge");
 
 gulp.task("sass", function() {
   return gulp
@@ -14,6 +15,25 @@ gulp.task("sass", function() {
     .pipe(
       minifyCss({
         keepSpecialComments: 1
+      })
+    )
+    .pipe(gulp.dest("./css"));
+});
+
+gulp.task("purge", function() {
+  return gulp
+    .src("./scss/main.scss")
+    .pipe(sass().on("error", sass.logError))
+    .pipe(
+      minifyCss({
+        keepSpecialComments: 1
+      })
+    )
+    .pipe(
+      purge({
+        trim: true,
+        shorten: true,
+        verbose: true
       })
     )
     .pipe(gulp.dest("./css"));
@@ -47,7 +67,7 @@ gulp.task("watch", function() {
 });
 
 gulp.task("build", function(callback) {
-  runSequence(["sass", "scripts"], "images", "prefix", callback);
+  runSequence(["purge", "scripts"], "images", "prefix", callback);
 });
 
 gulp.task("default", function(callback) {

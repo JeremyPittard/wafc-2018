@@ -1,0 +1,18 @@
+.event {
+  &__hero {
+    img {
+      width: 100%;
+    }
+
+    .container,
+    .row {
+      height: 100%;
+    }
+  }
+
+  &__label {
+    background-color: $secondary;
+    color: $primary;
+    padding: 0.5rem;
+  }
+}

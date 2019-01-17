@@ -1,0 +1,22 @@
+.honor-board {
+  &__title {
+    text-align: center;
+  }
+
+  &__links {
+    a {
+      color: $primary;
+      background: $secondary;
+      text-align: center;
+      padding: 1rem 0.5rem;
+    }
+  }
+
+  &.alternate {
+    background-color: $secondary;
+    color: $primary;
+    h2 {
+      color: $primary;
+    }
+  }
+}

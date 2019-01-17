@@ -12,7 +12,6 @@
                 'order' => 'asc'
              );
             $loop = new WP_Query( $args );
-            $event_count = 0;
             
             
             

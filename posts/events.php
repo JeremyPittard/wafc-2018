@@ -38,14 +38,19 @@ function events_post() {
         'publicly_queryable'  => true,
         'capability_type'     => 'page',
     );
-    register_post_type( 'Events', $args );
+    register_post_type( 'Events', $args ); 
+    
+} 
+
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+DO NOT REMOVE
+*/
  
-}
- 
-// Hook into the 'init' action
 add_action( 'init', 'events_post', 0 );
 
 function events_pagination_rewrite() {
     add_rewrite_rule(get_option('post_type').'page/?([0-9]{1,})/?$', 'index.php?pagename='.get_option('post_type').'&paged=$matches[1]', 'top');
-  }
+ }
   add_action('init', 'events_pagination_rewrite');

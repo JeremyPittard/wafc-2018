@@ -1,67 +1,76 @@
 <?
     $logo = get_field('logo', 'option');
-    $fixtures_bg = get_field('fixtures_bg');
-    $card_count = 0;
-    $team_count = count(get_field('team', 87)) ; // to be used to calculate where js resets the loop for the upcoming-games__card
+    $fixtures_bg = get_field('fixtures_bg', 94);
+    $fixture_count = 0;
+
 
 ?>
 
+
+
+
 <section class="upcoming-games" style="background-image:url(<?php echo $fixtures_bg['url']; ?>);">
     <div class="upcoming-games__filter"></div>
-    <div class="container upcoming-games__content" data-team-count="<?php echo $team_count; ?>">
-        <div class="row">
-            <div class="col-xs-12"><h2>Upcoming Games</h2></div>
-        </div>
-        
-            <?php
-                if(have_rows('team', 87)) :
-                    while(have_rows('team', 87)) : the_row(); 
-                    $team = get_sub_field('team_name');
-                    ?>  
-                        <div class="row upcoming-games__card <?php if($card_count < 1): echo 'active'; endif; ?>" data-loop-index="<?php echo $card_count; ?>" >
-                            <div class="col-xs-12 upcoming-games__team-name">
-                                <h3><?php echo $team ; ?></h3>
-                                
-                            </div>
+    <div class="container upcoming-games__fixture">
+        <?php
+            if (have_rows('game', 87)) :
+                while(have_rows('game', 87)) : the_row();
+                    $game_date = get_sub_field('game_date');
+                    $current_date = date('Y-m-d');
+                    $myDateTime = DateTime::createFromFormat('Y-m-d', $game_date);                
+                    $formatted_date = $myDateTime->format('d F Y');
+                ?>
+                <div class="row">
+                <h2 class="col-xs-12 upcoming-games__title">
+                    Upcoming Games
+                </h2>
+        <?php
+                    if($game_date >= $current_date && $fixture_count < 1) :
+
+                        ?>
+                        <h2 class="col-xs-12 upcoming-games__date">
                             <?php
-                                if(have_rows('fixtures')) :
-                                    while(have_rows('fixtures')) : the_row() ;
-                                        $date = get_sub_field('datetime');
-                                        $opponent = get_sub_field('opponent');
-                                        $location = get_sub_field('location');
-                                        $current_date = date('Y-m-d H:i:s');
-                                        $myDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $date);
-                                        $formatted_date = $myDateTime->format('d F Y \a\t h:iA');
-                                        
-                                        if($date > $current_date) : 
-                                            $date_count = 0;
-                                        ?>
-                                            <div class="col-xs-12 upcoming-games__date"><?php echo $formatted_date; ?></div>
-                                            <div class="col-xs-12 col-md-4 upcoming-games__logo-container"><img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']?>" class="upcoming-games__logo"></div>                                        
-                                            <div class="col-xs-12 col-md-4 upcoming-games__versus"><img src="<?php bloginfo('stylesheet_directory'); ?>/img/vs.svg" alt="Versus"></div>
-                                            <div class="col-xs-12 col-md-4 upcoming-games__opponent"><h3><?php echo $opponent?></h3></div>
-                                            <div class="col-xs-12 upcoming-games__location"><h3><?php echo $location ?></h3></div>
-                                        <?php
-                                        $date_count++;
-                                        elseif ($date_count > 0) :
-                                            break;
-                                        
-                                        endif;
-                                    endwhile;
-                                endif;
-                            ?>
-                        </div>
+                                echo $formatted_date;
+                                ?>
+                        </h2>
                         <?php 
-                        $card_count++;
-                    endwhile;
-                endif; 
-            ?>
-            
-        </div>
-    </div>
+                            if(have_rows('details', 87)) : 
+                                while(have_rows('details', 87)) : the_row();
+                                $raw_team = get_sub_field('team_playing');
+                                $team = $raw_team['label'];
+                                $opponent = get_sub_field('opposition_team');
+                                $venue = get_sub_field("game_location");
+			                    $map_query = (preg_replace('/\s+/', '+', $venue));
+                                $bounce_down = get_sub_field('game_start');                        
+                        ?>
+                                    <div class="col-xs-12 col-md-4 upcoming-games__details">
+                                        <h2 class="upcoming-games__team"><?php echo $team; ?></h2>
+                                        <h2>VS</h2>
+                                        <h2 class="upcoming-games__team"><?php echo $opponent; ?></h2>                                    
+                                        <a class="upcoming-games__maps-link" href="https://maps.google.com/?q=<?php echo $map_query; ?>" target="_blank" class="upcoming-games__venue">
+                                            <?php echo file_get_contents( get_stylesheet_directory_uri() . '/img/icons/icon-map.svg' ); ?><br />
+                                            <?php echo $venue; ?>
+                                        </a>
+                                        <p class="upcoming-games__team"><?php echo $bounce_down; ?></p>
+                                    </div>
+                        <?php
+                                endwhile;
+                            endif;
+                        $fixture_count++;                        
+                    endif;
+                endwhile;
+            endif;
+        ?>
+                </div>
+    </div>         
 </section>
 
-<?php wp_reset_query();?>    
+<?php
+// endwhile;
+// endif; 
+wp_reset_query();
+?>    
+
 
 
 

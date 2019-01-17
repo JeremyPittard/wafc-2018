@@ -38,10 +38,19 @@ function news_posts() {
         'publicly_queryable'  => true,
         'capability_type'     => 'page',
     );
-    register_post_type( 'News', $args );
- 
+    register_post_type( 'News', $args ); 
+
 }
+
+/* Hook into the 'init' action so that the function
+* Containing our post type registration is not 
+* unnecessarily executed. 
+DO NOT REMOVE
+*/
+ 
+add_action( 'init', 'news_posts', 0 );
+
 function news_pagination_rewrite() {
     add_rewrite_rule(get_option('post_type').'page/?([0-9]{1,})/?$', 'index.php?pagename='.get_option('post_type').'&paged=$matches[1]', 'top');
-  }
-  add_action('init', 'news_pagination_rewrite');
+    }
+add_action('init', 'news_pagination_rewrite');

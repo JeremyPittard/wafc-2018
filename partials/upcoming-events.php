@@ -13,7 +13,7 @@
              );
             $loop = new WP_Query( $args );
             
-            
+            if ($loop->have_posts()) :
             
             while ( $loop->have_posts() ) : $loop->the_post(); 
             $image = get_field('feature_image');  
@@ -34,10 +34,18 @@
             
         <?php
         endwhile;
+
+        else : ?>
+        <div class="col-xs-12">
+           <h2>
+               No upcoming events check back soon
+           </h2> 
+        </div>
         
-        ?>
+    <?php endif; ?>
     
     </div>
     
 </section>
 <?php wp_reset_query(); ?>
+

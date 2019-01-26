@@ -21,13 +21,14 @@
                     $formatted_date = $myDateTime->format('d F Y');
                 ?>
                 <div class="row">
-                <h2 class="col-xs-12 upcoming-games__title">
-                    Upcoming Games
-                </h2>
+                
         <?php
                     if($game_date >= $current_date && $fixture_count < 1) :
 
                         ?>
+                        <h2 class="col-xs-12 upcoming-games__title">
+                            Upcoming Games
+                        </h2>
                         <h2 class="col-xs-12 upcoming-games__date">
                             <?php
                                 echo $formatted_date;
@@ -59,6 +60,14 @@
                         $fixture_count++;                        
                     endif;
                 endwhile;
+            else : ?>
+              <h2 class="col-xs-12 upcoming-games__title">
+                            Upcoming Games
+                        </h2>
+                <h2 class="upcoming-games__date">
+                                        No upcoming games scheduled check back soon!
+                                    </h2>
+            <?php
             endif;
         ?>
                 </div>

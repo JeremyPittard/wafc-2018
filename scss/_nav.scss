@@ -33,6 +33,23 @@ header {
 
     .menu-item {
       padding: 0.5rem 1rem;
+
+      &:after {
+        content: "";
+        width: 0;
+        height: 1px;
+        background-color: $primary;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      &:hover {
+        &:after {
+          width: 100%;
+        }
+      }
     }
   }
 

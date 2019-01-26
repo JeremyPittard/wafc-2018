@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   position: relative;
   text-align: center;
+  background-color: $primary;
 
   &__filter {
     position: absolute;
@@ -47,9 +48,16 @@
     border: 1px solid $secondary;
     background: $primary;
     color: $secondary;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__maps-link {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
     svg {
       fill: $secondary;
       margin-bottom: 7px;

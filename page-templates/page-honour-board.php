@@ -34,14 +34,32 @@
                     <div class="container"> 
                         <div class="row">
                             <h2 class="col-xs-12 honor-board__title" id="<?php echo $title_id; ?>"><?php echo $title ?></h2>
-                        </div> 
-                        <?php   if ( have_rows('player')) : 
-                             while (have_rows('player')) : the_row(); ?>
-                                <div class="row">
-                                    <h4><?php echo get_sub_field('season'); ?> <?php echo get_sub_field('player_name'); ?> </h4>
-                                </div>
+                    
+                             <?php  
+                              if ( have_rows('player')) : 
+                                while (have_rows('player')) : the_row(); 
+                                    $season = get_sub_field('season');
+                                    $player = get_sub_field('player_name');
+                                    $photo = get_sub_field('photo');
+                             ?>
+                                <figure class="col-md-2 honor-board__player">
+                                    <?php 
+                                        if($photo) :?><img class="honor-board__photo" src="<?php echo $photo['url']; ?>" alt=""> 
+                                    <?php
+                                        else :
+                                    ?>
+                                        <?php echo file_get_contents( get_stylesheet_directory_uri() . '/img/icons/trophy.svg' ); 
+                                    
+                                        endif;
+                                    ?>
+                                    <figcaption class="honor-board__player-name"><?php echo $player; ?></figcaption>
+                                    <figcaption class="honor-board__season"><?php echo $season; ?></figcaption>
+
+                                </figure>
+                               
                             <?php endwhile;
                         endif; ?>
+                        </div>
                     </div>
                 </section>
 <?php 

@@ -1,22 +1,35 @@
 .honor-board {
+  text-align: center;
+  font-family: $title-font;
+  margin: 2rem 0;
+
   &__title {
-    text-align: center;
+    color: $secondary;
   }
 
-  &__links {
-    a {
-      color: $primary;
-      background: $secondary;
-      text-align: center;
-      padding: 1rem 0.5rem;
+  .container {
+    border: 3px solid $secondary;
+    border-radius: 15px;
+  }
+
+  &__player {
+    svg {
+      fill: $secondary;
+      width: 100px;
+      height: 140px;
     }
   }
 
-  &.alternate {
-    background-color: $secondary;
-    color: $primary;
-    h2 {
-      color: $primary;
-    }
+  &__photo {
+    max-width: 140px;
+  }
+
+  &__player-name {
+    font-size: 22px;
+  }
+
+  &__season {
+    font-style: italic;
+    font-family: $primary-font;
   }
 }

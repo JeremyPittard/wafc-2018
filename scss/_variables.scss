@@ -18,7 +18,19 @@ h6 {
   font-family: $title-font;
 }
 
-*::selection {
-  background-color: rgba($color: $primary, $alpha: 1);
-  color: rgba($color: $secondary, $alpha: 1);
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+ul,
+a,
+img {
+  ::selection {
+    color: rgba($color: $primary, $alpha: 1);
+    background-color: rgba($color: $secondary, $alpha: 1);
+  }
 }

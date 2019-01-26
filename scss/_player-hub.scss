@@ -1,0 +1,23 @@
+.player-hub {
+  margin-bottom: 2rem;
+  color: $secondary;
+
+  &__document {
+    border: 1px solid $secondary;
+    height: 15rem;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    svg {
+      fill: $secondary;
+      height: 50px;
+      width: 50px;
+    }
+  }
+}

@@ -76,10 +76,10 @@
 							 <a href="#top">Back To Top</a>
 						 </li>
 						 <li>
-							<a href="">privacy policy</a>
+							<a href="<?php echo get_home_url(); ?>/privacy-policy">privacy policy</a>
 						 </li>
 						 <li>
-							 <a href="">terms and conditions</a>
+							 <a href="<?php echo get_home_url(); ?>/terms-conditions">terms and conditions</a>
 						 </li>
 						 <li>
 							 <a href="">sitemap</a>

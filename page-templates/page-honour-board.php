@@ -6,7 +6,7 @@
         get_header();
         $board_count = 1;
  ?>
- <section class="honor-board__links">
+ <section class="honor-board__links" id="top">
    <div class="container">
        <div class="row">
             <?php
@@ -15,7 +15,8 @@
                     $title = get_sub_field('title');
                     $title_id = strtolower(trim(preg_replace('/\s+/', '', $title)));
                     ?>
-                        <a href="#<?php echo $title_id; ?>" class="honor-board__link col-xs-12 col-md-4"><?php echo $title; ?></a>
+                        
+                        <a href="#<?php echo $title_id; ?>" class="honor-board__link col-xs-12 col-md-4"><h3><?php echo $title; ?></h3></a>
             <?php
             endwhile;
         endif; ?>
@@ -29,11 +30,13 @@
             while (have_rows('achievement')) : the_row(); 
             $title = get_sub_field('title');
             $title_id = strtolower(trim(preg_replace('/\s+/', '', $title)));
+            $description = get_sub_field('description');
             ?>
                 <section class="honor-board <?php if($board_count % 2 === 0) : echo 'alternate'; endif; ?>" id="<?php echo $title_id?>"> 
                     <div class="container"> 
                         <div class="row">
                             <h2 class="col-xs-12 honor-board__title" id="<?php echo $title_id; ?>"><?php echo $title ?></h2>
+                            <p class="col-xs-12"><?php echo $description; ?></p>
                     
                              <?php  
                               if ( have_rows('player')) : 
@@ -42,7 +45,7 @@
                                     $player = get_sub_field('player_name');
                                     $photo = get_sub_field('photo');
                              ?>
-                                <figure class="col-md-2 honor-board__player">
+                                <figure class="col-md-2 col-xs-12 honor-board__player">
                                     <?php 
                                         if($photo) :?><img class="honor-board__photo" src="<?php echo $photo['url']; ?>" alt=""> 
                                     <?php

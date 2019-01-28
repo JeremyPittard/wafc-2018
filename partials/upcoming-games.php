@@ -64,7 +64,7 @@
               <h2 class="col-xs-12 upcoming-games__title">
                             Upcoming Games
                         </h2>
-                <h2 class="upcoming-games__date">
+                <h2 class="upcoming-games__date col-xs-12">
                                         No upcoming games scheduled check back soon!
                                     </h2>
             <?php

@@ -2,6 +2,9 @@
     $logo = get_field('logo', 'option');
     $fixtures_bg = get_field('fixtures_bg', 94);
     $fixture_count = 0;
+    $delay = 0;
+    
+   
 
 
 ?>
@@ -26,10 +29,10 @@
                     if($game_date >= $current_date && $fixture_count < 1) :
 
                         ?>
-                        <h2 class="col-xs-12 upcoming-games__title">
+                        <h2 class="col-xs-12 upcoming-games__title" data-aos="fade-up" >
                             Upcoming Games
                         </h2>
-                        <h2 class="col-xs-12 upcoming-games__date">
+                        <h2 class="col-xs-12 upcoming-games__date" data-aos="fade-up"  >
                             <?php
                                 echo $formatted_date;
                                 ?>
@@ -44,7 +47,7 @@
 			                    $map_query = (preg_replace('/\s+/', '+', $venue));
                                 $bounce_down = get_sub_field('game_start');                        
                         ?>
-                                    <div class="col-xs-12 col-md-4 upcoming-games__details">
+                                    <div class="col-xs-12 col-md-4 upcoming-games__details" data-aos="fade-up"  data-aos-delay="<?php echo $delay?>">
                                         <h2 class="upcoming-games__team"><?php echo $team; ?></h2>
                                         <h2>VS</h2>
                                         <h2 class="upcoming-games__team"><?php echo $opponent; ?></h2>                                    
@@ -53,6 +56,13 @@
                                             <?php echo $venue; ?>
                                         </a>
                                         <p class="upcoming-games__team"><?php echo $bounce_down; ?></p>
+                                        <?php 
+                                            if ($delay < 400) {
+                                                $delay += 200;
+                                            } else {
+                                                $delay = 0;
+                                            }
+                                        ?>
                                     </div>
                         <?php
                                 endwhile;
@@ -61,10 +71,10 @@
                     endif;
                 endwhile;
             else : ?>
-              <h2 class="col-xs-12 upcoming-games__title">
+              <h2 class="col-xs-12 upcoming-games__title" data-aos="fade-up" >
                             Upcoming Games
                         </h2>
-                <h2 class="upcoming-games__date col-xs-12">
+                <h2 class="upcoming-games__date col-xs-12" data-aos="fade-up" >
                                         No upcoming games scheduled check back soon!
                                     </h2>
             <?php

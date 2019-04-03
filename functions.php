@@ -232,11 +232,4 @@ function acf_load_team_field_choices( $field ) {
     
 }
 
-function new_link_display() {
-    echo "Echo html code for the page";
-}
-function new_link_page() {
-    if (function_exists('add_submenu_page') )
-        add_submenu_page('index.php', __('New Like Label'), __('New Link Label'), 'manage_options', 'new-link-display', 'new_link_display');
-}
-add_action('admin_menu', 'new_link_page');
+

@@ -11,6 +11,10 @@
 
   &__fixture {
     border-bottom: 1px solid $secondary;
+
+    .row {
+      padding: 1rem 0;
+    }
   }
 
   &__details {

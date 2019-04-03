@@ -3,6 +3,7 @@
  * Template Name: Contact Us
  */
  get_header();
+ $delay = 0;
 
  $facebook = get_field('facebook_link', 'options');
  $twitter = get_field('twitter_link', 'options');
@@ -14,12 +15,12 @@
  <section class="contact-us">
      <div class="container">
          <div class="row">
-             <div class="col-xs-12 col-md-6 contact-us__social">
+             <div class="col-xs-12 col-md-6 contact-us__social" data-aos="fade-up">
                  <h2>Find Us On Social Media</h2>
                  <!-- only display icon if facebook link is in wordpress back end -->
                 <div class="social-wrap">
                     <?php if($facebook) : ?> 
-                    <a href="<?php echo $facebook['url'];?>" title="warriors bookfacing" target="_blank">
+                    <a href="<?php echo $facebook['url'];?>" title="warriors bookfacing" target="_blank" data-aos="zoom-in" data-aos-delay="200">
                         <?php echo file_get_contents( get_stylesheet_directory_uri() . '/img/icons/facebook.svg' ); ?>
                     </a>
                     <?php endif;?>
@@ -27,20 +28,20 @@
                     <!-- only display icon if twitter link is in wordpress back end -->
                     <?php if($twitter) : ?> 
                     
-                    <a href="<?php echo $twitter['url'];?>" title="warriors tweeting" target="_blank">
+                    <a href="<?php echo $twitter['url'];?>" title="warriors tweeting" target="_blank" data-aos="zoom-in" data-aos-delay="400">
                             <?php echo file_get_contents( get_stylesheet_directory_uri() . '/img/icons/twitter.svg' ); ?>
                         </a>
                         <?php endif;?>
                         <!-- only display icon if instagram link is in wordpress back end -->
                         <?php if($instagram) : ?> 
                         
-                        <a href="<?php echo $instagram['url'];?>" title="warriors taking pictures" target="_blank">
+                        <a href="<?php echo $instagram['url'];?>" title="warriors taking pictures" target="_blank" data-aos="zoom-in" data-aos-delay="600">
                                 <?php echo file_get_contents( get_stylesheet_directory_uri() . '/img/icons/insta.svg' ); ?>
                             </a>
                             <?php endif;?>
                 </div>
              </div>
-             <div class="col-xs-12 col-md-6 contact-us__contacts">
+             <div class="col-xs-12 col-md-6 contact-us__contacts" data-aos="fade-up">
 
              <h3>To talk Membership or Sponsorship opportunites, contact one of our representatives below</h3>
 						<?php if ( have_rows('contacts', 'options') ) :					
@@ -51,14 +52,20 @@
 								$email = get_sub_field('contact_email');
 								?>
 
-								<ul class="contact-us__contacts-list">
+								<ul class="contact-us__contacts-list" data-aos="fade-left" data-aos-delay="<?php echo $delay; ?>">
 									<li><strong><?php echo $position . ": " . $name; ?></strong></li>
 									<?php if($phone) :?><li>Phone: <?php echo $phone ;?></li> <?php endif ; ?>
 									<?php if($email) :?><li>Email: <?php echo $email ;?></li> <?php endif ; ?>
 
 								</ul>
 						
-							<?php endwhile; ?>
+                            <?php 
+                            if ($delay < 600) {
+                                $delay += 200;
+                            } else {
+                                $delay = 0;
+                            }
+                            endwhile; ?>
 						
 						<?php endif; ?>
              </div>

@@ -49,9 +49,12 @@ $logo = get_field('logo', 'option');
 	<meta name="msapplication-TileColor" content="#3e4189">
 	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 	<meta name="theme-color" content="#3e4189">
+
 		
 
 	<?php wp_head(); ?>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 
 <body <?php body_class(); ?>>

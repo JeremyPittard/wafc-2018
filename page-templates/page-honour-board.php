@@ -5,6 +5,8 @@
 
         get_header();
         $board_count = 1;
+        $delay = 0;
+
  ?>
  <section class="honor-board__links" id="top">
    <div class="container">
@@ -16,7 +18,9 @@
                     $title_id = strtolower(trim(preg_replace('/\s+/', '', $title)));
                     ?>
                         
-                        <a href="#<?php echo $title_id; ?>" class="honor-board__link col-xs-12 col-md-4"><h3><?php echo $title; ?></h3></a>
+                        <a href="#<?php echo $title_id; ?>" class="honor-board__link col-xs-12 col-md-4" data-aos="fade">
+                            <h3><?php echo $title; ?></h3>
+                        </a>
             <?php
             endwhile;
         endif; ?>
@@ -34,7 +38,7 @@
             ?>
                 <section class="honor-board <?php if($board_count % 2 === 0) : echo 'alternate'; endif; ?>" id="<?php echo $title_id?>"> 
                     <div class="container"> 
-                        <div class="row">
+                        <div class="row" data-aos="fade-up">
                             <h2 class="col-xs-12 honor-board__title" id="<?php echo $title_id; ?>"><?php echo $title ?></h2>
                             <p class="col-xs-12"><?php echo $description; ?></p>
                     
@@ -45,8 +49,15 @@
                                     $player = get_sub_field('player_name');
                                     $photo = get_sub_field('photo');
                              ?>
-                                <figure class="col-md-2 col-xs-12 honor-board__player">
+                                <figure class="col-md-2 col-xs-12 honor-board__player" data-aos="zoom-in" data-aos-delay="<?php echo $delay; ?>">
                                     <?php 
+                                    if ($delay < 750) {
+                                        $delay += 150;
+                                    } else {
+                                        $delay= 0;
+                                    }
+
+                                    
                                         if($photo) :?><img class="honor-board__photo" src="<?php echo $photo['url']; ?>" alt=""> 
                                     <?php
                                         else :
@@ -57,10 +68,13 @@
                                     ?>
                                     <figcaption class="honor-board__player-name"><?php echo $player; ?></figcaption>
                                     <figcaption class="honor-board__season"><?php echo $season; ?></figcaption>
-
+                                 
                                 </figure>
                                
-                            <?php endwhile;
+                            <?php 
+                    
+                        endwhile;
+                        $delay = 0;
                         endif; ?>
                         </div>
                     </div>

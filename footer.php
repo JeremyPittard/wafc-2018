@@ -68,6 +68,26 @@
 							<?php echo file_get_contents( get_stylesheet_directory_uri() . '/img/icons/insta.svg' ); ?>
 						</a>
 					<?php endif;?>
+				<ul>
+					<?php if ( have_rows('documents', 243) ) :            
+					while( have_rows('documents', 243) ) : the_row(); 
+					$document = get_sub_field('document')['url'];
+					$title = get_sub_field('document_title');
+					?>
+
+					<li>
+						<a href="<?php echo $document?>" download>
+							<?php echo $title?>
+						</a>
+					</li>
+						<?php
+							endwhile;
+						endif;
+						?>
+				</ul>
+
+
+
 		
 				</div>
 				<div class="col-xs-12 col-md-3 site-footer__details">
@@ -93,6 +113,12 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+<script>
+  AOS.init({
+	  once: true
+  });
+</script>
 </body>
 </html>

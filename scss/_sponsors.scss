@@ -12,6 +12,7 @@
   &__sponsor-wrapper {
     border: 3px solid $secondary;
     border-radius: 15px;
+    margin-bottom: 3rem;
 
     figure {
       display: flex;
@@ -47,7 +48,6 @@
   }
   &__social {
     display: flex;
-    border-top: 1px solid $secondary;
     flex-direction: row;
     padding: 1rem 0;
     align-items: center;

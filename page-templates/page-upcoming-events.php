@@ -3,6 +3,7 @@
      * Template Name: Upcoming Events
      */
     get_header();
+    $delay = 0;
 ?>
 <section class="container upcoming-events">
     <div class="row">
@@ -40,20 +41,27 @@
         
         ?>
 
-            <article class="col-xs-12 col-md-4 upcoming-events__event-card" >
+            <article class="col-xs-12 col-md-4 upcoming-events__event-card" data-aos="fade-up" data-aos-delay="<?php echo $delay; ?>" >
                 <a href="<?php the_permalink(); ?>">
                     <div class="upcoming-events__background-container"><img class="upcoming-events__background-image" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"></div>
                     <div class="upcoming-events__background-filter"></div>
-                    <time datetime="<?php echo $event_date; ?>" class="upcoming-events__event-date"><?php echo $formatted_event_date; ?></time>
-                    <h3 class="upcoming-events__event-title" ><?php the_title(); ?></h3>
+                    <time datetime="<?php echo $event_date; ?>" class="upcoming-events__event-date"  data-aos="fade-right" data-aos-delay="<?php echo $delay+100; ?>"><?php echo $formatted_event_date; ?></time>
+                    <h3 class="upcoming-events__event-title"  data-aos="fade-left" data-aos-delay="<?php echo $delay+100; ?>"><?php the_title(); ?></h3>
                 </a>
             </article>
         <?php
+        if ($delay < 400) {
+            $delay += 200;
+        } else {
+            $delay= 0;
+        }
+ 
+
             endwhile;
 
             else :
                 ?>
-                <div class="col-xs-12">
+                <div class="col-xs-12"  data-aos="fade-up"  ?>">
                 <h2>
                     No Upcoming Events Check Back Soon
                 </h2>

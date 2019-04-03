@@ -9,7 +9,7 @@
 ?>
 
 <section class="upcoming-games">
-    <div class="container upcoming-games__fixture">
+    <div class="container upcoming-games__fixture" >
         <?php
             if (have_rows('game')) :
                 while(have_rows('game')) : the_row();
@@ -18,7 +18,7 @@
                     $myDateTime = DateTime::createFromFormat('Y-m-d', $game_date);                
                     $formatted_date = $myDateTime->format('d F Y');
                 ?>
-                <div class="row">
+                <div class="row" data-aos="fade-up">
                     <h2 class="col-xs-12 upcoming-games__date"><?php echo $formatted_date; ?></h2>
                     <?php 
                     if(have_rows('details', 87)) : 

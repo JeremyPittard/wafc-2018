@@ -1,32 +1,32 @@
 .home-sponsors {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  background-color: $secondary;
-  color: $primary;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: $secondary;
+    color: $primary;
 
-  &__heading {
-    text-align: center;
-  }
-
-  &__container {
-    align-items: center;
-  }
-
-  &__sponsor {
-    text-align: center;
-
-    &.white-bg {
-      img {
-        background-color: #ffffff;
-      }
+    &__heading {
+        text-align: center;
     }
-  }
 
-  &__logo {
-    width: 150px;
-    max-width: 100%;
-    &--large {
-      width: 80%;
+    &__container {
+        align-items: center;
     }
-  }
+
+    &__sponsor {
+        text-align: center;
+
+        &.white-bg {
+            img {
+                background-color: #ffffff;
+            }
+        }
+    }
+
+    &__logo {
+        width: 150px;
+        max-width: 100%;
+        &--large {
+            width: 80%;
+        }
+    }
 }

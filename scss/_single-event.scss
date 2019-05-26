@@ -1,18 +1,20 @@
 .event {
-  &__hero {
-    img {
-      width: 100%;
+    &__hero {
+        text-align: center;
+        background: $secondary;
+        img {
+            height: 450px;
+        }
+
+        .container,
+        .row {
+            height: 100%;
+        }
     }
 
-    .container,
-    .row {
-      height: 100%;
+    &__label {
+        background-color: $secondary;
+        color: $primary;
+        padding: 0.5rem;
     }
-  }
-
-  &__label {
-    background-color: $secondary;
-    color: $primary;
-    padding: 0.5rem;
-  }
 }

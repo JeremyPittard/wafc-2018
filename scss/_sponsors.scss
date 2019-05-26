@@ -1,68 +1,68 @@
 .sponsors {
-  color: $secondary;
-  margin: 2rem 0;
-  svg {
-    fill: $secondary;
-  }
-
-  &__title {
-    text-align: center;
-  }
-
-  &__sponsor-wrapper {
-    border: 3px solid $secondary;
-    border-radius: 15px;
-    margin-bottom: 3rem;
-
-    figure {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    .sponsors__site,
-    .sponsors__description {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-
-      p {
-        max-width: 100%;
-      }
-
-      a {
-        text-align: center;
-      }
-
-      svg {
-        height: 50px;
-        width: 50px;
-      }
-    }
-  }
-
-  &__logo {
-    max-width: 180px;
-  }
-  &__social {
-    display: flex;
-    flex-direction: row;
-    padding: 1rem 0;
-    align-items: center;
-
-    p {
-      margin: 0 1rem;
-    }
-
-    a {
-      text-decoration: none;
-    }
+    color: $secondary;
+    margin: 2rem 0;
     svg {
-      margin-right: 1rem;
-      height: 30px;
-      width: 30px;
+        fill: $secondary;
     }
-  }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__sponsor-wrapper {
+        border: 3px solid $secondary;
+        border-radius: 15px;
+        margin-bottom: 3rem;
+
+        figure {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .sponsors__site,
+        .sponsors__description {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            p {
+                max-width: 100%;
+            }
+
+            a {
+                text-align: center;
+            }
+
+            svg {
+                height: 50px;
+                width: 50px;
+            }
+        }
+    }
+
+    &__logo {
+        max-width: 180px;
+    }
+    &__social {
+        display: flex;
+        flex-direction: row;
+        padding: 1rem 0;
+        align-items: center;
+
+        p {
+            margin: 0 1rem;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        svg {
+            margin-right: 1rem;
+            height: 30px;
+            width: 30px;
+        }
+    }
 }

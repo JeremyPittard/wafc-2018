@@ -251,3 +251,4 @@ jQuery(function($) {
     });
 });
 
+//include /js/lazy.js
